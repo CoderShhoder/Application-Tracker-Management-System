@@ -6,105 +6,145 @@
 <head runat="server">
     <title></title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
 </head>
 <body>
     <form id="form1" runat="server">
         <div>
-            <button type="button" id="openModal" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">Large modal</button>
+            <header>
+                <h2>Application Tracking Management</h2>
 
-            <div class="modal fade bd-example-modal-lg" id="RoleFormModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-lg">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" id="#closeModal" class="close" data-dismiss="modal">&times;</button>
-                            <h4 class="modal-title">Modal Header</h4>
-                        </div>
-                        <div class="modal-body">
-                            <div class="col-sm-12">
-                                <div class="form-group">
+                <div id="headerControls" class="d-flex flex-row" style="float: right;">
+                    <div id="Sort">
+                        <i class="fas-duotone fa-sort-up"></i>
+                        <asp:DropDownList ID="ddlSort" runat="server"></asp:DropDownList>
+                    </div>
+                    <div id="Filter">
+                        <i class="fa fa-filter"></i>
+                        <asp:DropDownList ID="ddlFilter" runat="server"></asp:DropDownList>
+                    </div>
+                    <button type="button" id="openModal" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">Large modal</button>
 
+                    <div class="modal fade bd-example-modal-lg" id="RoleFormModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" id="#closeModal" class="close" data-dismiss="modal">&times;</button>
+                                    <h4 class="modal-title">Modal Header</h4>
+                                </div>
+                                <div class="modal-body">
                                     <div class="col-sm-12">
-                                        <input type="text" class="form-control" placeholder="Company Name " />
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-12 ">
-                                <div class="form-group d-flex flex-row">
+                                        <div class="form-group">
 
-                                    <div class="col-sm-5 ">
-                                        <input type="text" class="form-control" placeholder="Job Role " />
-                                    </div>
-                                    <div class="col-sm-2">
-                                    </div>
-                                    <div class="col-sm-5">
-                                        <input type="text" class="form-control" placeholder="Recruiter Name " />
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-12 ">
-                                <div class="form-group d-flex flex-row">
+                                            <div class="col-sm-12">
 
-                                    <div class="col-sm-5 ">
-                                        <input type="text" class="form-control" placeholder="Application Date" />
+                                                <input type="text" class="form-control" placeholder="Company Name " />
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="col-sm-2">
-                                    </div>
-                                    <div class="col-sm-5">
-                                        <input type="text" class="form-control" placeholder="Application Status " />
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-12 ">
-                                <div class="form-group d-flex flex-row">
                                     <div class="col-sm-12 ">
-                                        <textarea class="form-control" placeholder="Application Notes" rows="3"> </textarea>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-12">
-                                <div class="form-group">
+                                        <div class="form-group d-flex flex-row">
 
+                                            <div class="col-sm-5 ">
+                                                <input type="text" class="form-control" placeholder="Job Role " />
+                                            </div>
+                                            <div class="col-sm-2">
+                                            </div>
+                                            <div class="col-sm-5">
+                                                <input type="text" class="form-control" placeholder="Recruiter Name " />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12 ">
+                                        <div class="form-group d-flex flex-row">
+
+                                            <div class="col-sm-5 ">
+                                                <input type="text" class="form-control" placeholder="Application Date" />
+                                            </div>
+                                            <div class="col-sm-2">
+                                            </div>
+                                            <div class="col-sm-5">
+                                                <input type="text" class="form-control" placeholder="Application Status " />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12 ">
+                                        <div class="form-group d-flex flex-row">
+                                            <div class="col-sm-12 ">
+                                                <textarea class="form-control" placeholder="Application Notes" rows="3"> </textarea>
+                                            </div>
+                                        </div>
+                                    </div>
                                     <div class="col-sm-12">
-                                        <input type="text" class="form-control" placeholder="Contact Details (Email Address / Contact Number)" />
-                                    </div>
-                                </div>
-                            </div>
-                            <div id="InterviewFeild">
-                                <div class="col-sm-12">
-                                    <div class="form-group d-flex flex-row">
-                                        <div class="col-sm-5 ">
-                                            <input type="text" class="form-control" placeholder="Interview Date" />
-                                        </div>
-                                        <div class="col-sm-2">
-                                        </div>
-                                        <div class="col-sm-5">
-                                            <input type="text" class="form-control" placeholder="Interview time" />
-                                        </div>
-                                    </div>
-                                </div>
+                                        <div class="form-group">
 
-                                <div class="col-sm-12 ">
-                                    <div class="form-group d-flex flex-row">
+                                            <div class="col-sm-12">
+                                                <input type="text" class="form-control" placeholder="Contact Details (Email Address / Contact Number)" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="InterviewFeild">
+                                        <div class="col-sm-12">
+                                            <div class="form-group d-flex flex-row">
+                                                <div class="col-sm-5 ">
+                                                    <input type="text" class="form-control" placeholder="Interview Date" />
+                                                </div>
+                                                <div class="col-sm-2">
+                                                </div>
+                                                <div class="col-sm-5">
+                                                    <input type="text" class="form-control" placeholder="Interview time" />
+                                                </div>
+                                            </div>
+                                        </div>
+
                                         <div class="col-sm-12 ">
-                                            <textarea class="form-control" placeholder="Interview Notes" rows="3"> </textarea>
+                                            <div class="form-group d-flex flex-row">
+                                                <div class="col-sm-12 ">
+                                                    <textarea class="form-control" placeholder="Interview Notes" rows="3"> </textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12" id="AppOutcome">
+                                        <div class="form-group">
+                                            <div class="col-sm-12">
+                                                <input type="text" class="form-control" placeholder="Application Outcome" />
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-sm-12" id="AppOutcome">
-                                <div class="form-group">
-                                    <div class="col-sm-12">
-                                        <input type="text" class="form-control" placeholder="Application Outcome" />
-                                    </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Submit</button>
                                 </div>
                             </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Submit</button>
                         </div>
                     </div>
                 </div>
-            </div>
+            </header>
+            <main>
+                <div>
+                    <div id="searchbox">
+                        <asp:TextBox ID="txtSearch" CssClass="form-control" runat="server"></asp:TextBox>
+                        <asp:ImageButton ID="imgbtnSearch" runat="server" />
+                    </div>
+                </div>
+                <div id="TrackerGridView">
+                    <asp:GridView ID="gvApplicationGrid" runat="server" BackColor="White" BorderColor="#336666" BorderStyle="Double" BorderWidth="3px" CellPadding="4" GridLines="Horizontal" >
+                        <FooterStyle BackColor="White" ForeColor="#333333" />
+                        <HeaderStyle BackColor="#336666" Font-Bold="True" ForeColor="White" />
+                        <PagerStyle BackColor="#336666" ForeColor="White" HorizontalAlign="Center" />
+                        <RowStyle BackColor="White" ForeColor="#333333" />
+                        <SelectedRowStyle BackColor="#339966" Font-Bold="True" ForeColor="White" />
+                        <SortedAscendingCellStyle BackColor="#F7F7F7" />
+                        <SortedAscendingHeaderStyle BackColor="#487575" />
+                        <SortedDescendingCellStyle BackColor="#E5E5E5" />
+                        <SortedDescendingHeaderStyle BackColor="#275353" />
+                    </asp:GridView>
+                    <br />
+                </div>
+
+            </main>
+
         </div>
     </form>
 
