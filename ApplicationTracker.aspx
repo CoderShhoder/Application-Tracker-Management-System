@@ -38,7 +38,7 @@
 
                                             <div class="col-sm-12">
 
-                                                <input type="text" class="form-control" placeholder="Company Name " />
+                                                <input type="text" id="txtcompanyName" runat="server" class="form-control" placeholder="Company Name " />
                                             </div>
                                         </div>
                                     </div>
@@ -46,12 +46,12 @@
                                         <div class="form-group d-flex flex-row">
 
                                             <div class="col-sm-5 ">
-                                                <input type="text" class="form-control" placeholder="Job Role " />
+                                                <input type="text" id="txtJobRole" runat="server" class="form-control" placeholder="Job Role " />
                                             </div>
                                             <div class="col-sm-2">
                                             </div>
                                             <div class="col-sm-5">
-                                                <input type="text" class="form-control" placeholder="Recruiter Name " />
+                                                <input type="text" id="txtRecruiterName" runat="server" class="form-control" placeholder="Recruiter Name " />
                                             </div>
                                         </div>
                                     </div>
@@ -59,12 +59,13 @@
                                         <div class="form-group d-flex flex-row">
 
                                             <div class="col-sm-5 ">
-                                                <input type="text" class="form-control" placeholder="Application Date" />
+                                                <input type="text" id="txtApplicationDate" runat="server" class="form-control" placeholder="Application Date" />
                                             </div>
                                             <div class="col-sm-2">
                                             </div>
                                             <div class="col-sm-5">
-                                                <input type="text" class="form-control" placeholder="Application Status " />
+<%--                                                <input type="text" class="form-control" placeholder="Application Status " />--%>
+                                                <asp:DropDownList ID="ddlApplicationStatus" runat="server" class="form-control" ></asp:DropDownList>
                                             </div>
                                         </div>
                                     </div>
@@ -79,20 +80,21 @@
                                         <div class="form-group">
 
                                             <div class="col-sm-12">
-                                                <input type="text" class="form-control" placeholder="Contact Details (Email Address / Contact Number)" />
+                                                <input type="text" class="form-control" id="txtContactDetails" runat="server" placeholder="Contact Details (Email Address / Contact Number)" />
                                             </div>
                                         </div>
                                     </div>
-                                    <div id="InterviewFeild">
+                                    <div id="InterviewFeild" runat="server">
                                         <div class="col-sm-12">
                                             <div class="form-group d-flex flex-row">
                                                 <div class="col-sm-5 ">
-                                                    <input type="text" class="form-control" placeholder="Interview Date" />
+                                                    <input type="text" id="txtInterviewDate" runat="server" class="form-control" placeholder="Interview Date" />
                                                 </div>
                                                 <div class="col-sm-2">
                                                 </div>
                                                 <div class="col-sm-5">
-                                                    <input type="text" class="form-control" placeholder="Interview time" />
+                                                    <%--<input type="text" class="form-control" id="txtInterviewTime" runat="server" placeholder="Interview time" />--%>
+                                                    <asp:DropDownList ID="ddlInterviewTime" class="form-control" runat="server"></asp:DropDownList>
                                                 </div>
                                             </div>
                                         </div>
@@ -108,13 +110,16 @@
                                     <div class="col-sm-12" id="AppOutcome">
                                         <div class="form-group">
                                             <div class="col-sm-12">
-                                                <input type="text" class="form-control" placeholder="Application Outcome" />
+                                                <%--<input type="text" runat="server" id="txtApplicationOutcome" class="form-control" placeholder="Application Outcome" />--%>
+                                                <asp:DropDownList ID="ddlApplicationOutcome" class="form-control" runat="server"></asp:DropDownList>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-default" data-dismiss="modal">Submit</button>
+<%--                                    <button type="button" id="txtSubmit" runat="server" class="btn btn-default" >Submit</button>--%>
+                                    <asp:Button ID="btnSubmit" class="btn btn-secondary" data-dismiss="modal" runat="server" Text="Submit" OnClick="btnSubmit_Click" />
+                                    
                                 </div>
                             </div>
                         </div>
@@ -123,6 +128,7 @@
             </header>
             <main>
                 <div>
+                    <asp:Label ID="lblError" runat="server" Text=""></asp:Label>
                     <div id="searchbox">
                         <asp:TextBox ID="txtSearch" CssClass="form-control" runat="server"></asp:TextBox>
                         <asp:ImageButton ID="imgbtnSearch" runat="server" />
